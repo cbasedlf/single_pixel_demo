@@ -1,7 +1,7 @@
 # single_pixel_demo
 Two implementations: matlab + python
 
-Demo for single-pixel imaging using Hadamard patterns as sensing basis
+Demo for single-pixel imaging using Hadamard patterns as sensing basis.
 Loads an object, generates the sensing patterns (Hadamard), does the measurements 
 (with and without noise), and recovers the image.
 
@@ -11,4 +11,4 @@ noise added.
 
 Reconstruction is done by inversion.
 
-Might add some compressive sensing in the future to do subsampling, though there are million examples out there of that
+Might add some compressive sensing in the future to do subsampling, though there are million examples out there of that.
