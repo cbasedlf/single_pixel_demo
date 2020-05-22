@@ -1,9 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Created on Mon Mar 23 12:00:36 2020
-
-@author: Fer
-"""
 #%% Demo for single-pixel imaging using Hadamard patterns as sensing basis
 # Loads an object, generates the sensing patterns (Hadamard), 
 # does the measurements (with and without noise), and recovers the image.
