@@ -35,10 +35,10 @@ Mminus = Hminus@test_obj.flatten()  #Project H- patterns, store intensity
 M = Mplus - Mminus                  #Substract values (H+ - H-)
 
 # Generate measurements with noise
-noise_level = 2 #width (std) of the noise distribution (Gaussian)
+noise_level = 0.01 # Relative amplitude of the gaussian noise
 # Generate noises (random number using a Gaussian distribution)
-noise_plus = np.random.normal(np.mean(Mplus),noise_level,Mplus.size)
-noise_minus = np.random.normal(np.mean(Mminus),noise_level,Mminus.size)
+noise_plus = np.random.normal(0,Mplus.mean()*noise_level,Mplus.size)
+noise_minus = np.random.normal(0,Mminus.mean()*noise_level,Mminus.size)
 # Add noise to the true coefficients
 Mplus_noise = Mplus + noise_plus        #Project H+
 Mminus_noise = Mminus + noise_minus     #Project H-
@@ -67,3 +67,5 @@ plt.axis('on')
 plt.title('Recovered image with noise')
 plt.colorbar()
 plt.show()
+
+# %%
