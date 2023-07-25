@@ -70,11 +70,6 @@ Mplus = Hplus @ test_obj.flatten() # Project H+ patterns, store intensity
 Mminus = Hminus @ test_obj.flatten() # Project H- patterns, store intensity
 M = Mplus - Mminus # Substract values (H+ - H-)
 
-# Generate measurements with noise
-noise_level = 2 #width (std) of the noise distribution (Gaussian)
-# Generate noises (random number using a Gaussian distribution)
-noise_plus = np.random.normal(np.mean(Mplus),noise_level,Mplus.size)
-noise_minus = np.random.normal(np.mean(Mminus),noise_level,Mminus.size)
 # Generate measurements from a noisy object
 desired_SNR = 20 # SNR desired for the object
 # Generate noisy object (adding white gaussian noise)
@@ -93,14 +88,14 @@ recovery = recovery.reshape((px, px))
 recovery_noise = recovery_noise.reshape((px, px))
 
 #%% Show the results
-#Show recovery without noise
+# Show recovery without noise
 plt.figure()
 plt.imshow(recovery, cmap = 'hot')
 plt.axis('on')
 plt.title('Recovered image without noise')
 plt.colorbar()
 plt.show()
-#Show recovery with noise
+# Show recovery with noise
 plt.figure()
 plt.imshow(recovery_noise, cmap = 'hot')
 plt.axis('on')
