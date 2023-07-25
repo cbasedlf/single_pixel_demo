@@ -65,23 +65,20 @@ Hplus = (H + 1) / 2       # H+ Hadamard matrix (1s and 0s)
 Hminus = (1 - H) / 2      # H- Hadamard matrix (0s and 1s)
 
 #%% Generate measurements simulating H+ and H- 
-## (as if patterns were generated on a DMD)
+#   (as if patterns were generated on a DMD)
 Mplus = Hplus @ test_obj.flatten() # Project H+ patterns, store intensity
 Mminus = Hminus @ test_obj.flatten() # Project H- patterns, store intensity
 M = Mplus - Mminus # Substract values (H+ - H-)
 
-<<<<<<< Updated upstream
 # Generate measurements with noise
 noise_level = 2 #width (std) of the noise distribution (Gaussian)
 # Generate noises (random number using a Gaussian distribution)
 noise_plus = np.random.normal(np.mean(Mplus),noise_level,Mplus.size)
 noise_minus = np.random.normal(np.mean(Mminus),noise_level,Mminus.size)
-=======
 # Generate measurements from a noisy object
 desired_SNR = 20 # SNR desired for the object
 # Generate noisy object (adding white gaussian noise)
 test_obj_noisy, noise = noisify(test_obj.flatten(), desired_SNR)
->>>>>>> Stashed changes
 # Add noise to the true coefficients
 Mplus_noisy = Hplus @ test_obj_noisy # Project H+
 Mminus_noisy = Hminus @ test_obj_noisy # Project H-
