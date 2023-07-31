@@ -4,6 +4,7 @@
 # does the measurements (with and without noise), and recovers the image.
 
 #%% Import libraries
+from typing import Tuple
 from matplotlib import pyplot as plt
 import numpy as np
 # Generate hadamard matrices
@@ -13,7 +14,7 @@ from skimage.transform import resize
 from PIL import Image
 
 #%% Define useful functions
-def noisify(signal: np.ndarray, end_snr: float) -> (np.ndarray, np.ndarray):
+def noisify(signal: np.ndarray, end_snr: float) -> Tuple[np.ndarray, np.ndarray]:
     '''
     Add white gaussian noise to a signal so it ends with end_snr 
     signal-to-noise ratio.
