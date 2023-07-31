@@ -73,11 +73,9 @@ M = Mplus - Mminus # Substract values (H+ - H-)
 
 # Generate measurements from a noisy object
 desired_SNR = 20 # SNR desired for the object
-# Generate noisy object (adding white gaussian noise)
-test_obj_noisy, noise = noisify(test_obj.flatten(), desired_SNR)
 # Add noise to the true coefficients
-Mplus_noisy = Hplus @ test_obj_noisy # Project H+
-Mminus_noisy = Hminus @ test_obj_noisy # Project H-
+Mplus_noisy, _ = noisify(Mplus, desired_SNR) # Project H+
+Mminus_noisy, _ = noisify(Mminus, desired_SNR) # Project H-
 M_noisy = Mplus_noisy - Mminus_noisy # Substract values (H+ - H-)
 
 #%% Recover objects
