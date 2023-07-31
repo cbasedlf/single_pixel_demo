@@ -44,8 +44,6 @@ def noisify(signal: np.ndarray, end_snr: float) -> Tuple[np.ndarray, np.ndarray]
     noise_avg = 10**(noise_avg_db/10)
     # Build noise with desired power
     noise = np.random.normal(0, np.sqrt(noise_avg), signal.size)
-    # Build additive noise (shift to positive-only values)
-    noise = noise + np.abs(np.min(noise))
     # Add noise to signal
     noisy_signal = signal + noise
     
